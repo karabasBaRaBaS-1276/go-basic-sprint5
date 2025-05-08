@@ -37,7 +37,7 @@ func (ds *DaySteps) Parse(datastring string) (err error) {
 
 	steps, err := strconv.Atoi(parseData[0])
 	if err != nil {
-		return fmt.Errorf("%w: %w", errorFormateData, err)
+		return fmt.Errorf("%w: %v", errorFormateData, err)
 	}
 	if steps <= 0 {
 		return fmt.Errorf("%w: first value in data must be > 0", errorFormateData)
@@ -45,7 +45,7 @@ func (ds *DaySteps) Parse(datastring string) (err error) {
 
 	duration, err := time.ParseDuration(parseData[1])
 	if err != nil {
-		return fmt.Errorf("%w: %w", errorFormateData, err)
+		return fmt.Errorf("%w: %v", errorFormateData, err)
 	}
 	if duration <= 0 {
 		return fmt.Errorf("%w: second value in data must be > 0", errorFormateData)
